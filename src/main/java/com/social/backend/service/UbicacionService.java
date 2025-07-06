@@ -16,6 +16,6 @@ public class UbicacionService {
     }
 
     public List<Ubicacion> obtenerPorUbiCodUbica(String ubiCodUbica) {
-        return ubicacionRepository.findByUbiCodUbica(ubiCodUbica);
+        return ubicacionRepository.buscarPorUbiCodUbica(ubiCodUbica);
     }
 }

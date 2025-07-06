@@ -22,11 +22,11 @@ public class UsuarioService {
         String email = usuario.getEmail().toLowerCase();
         String celular = usuario.getCelular();
 
-        if (usuarioRepository.existsByEmailIgnoreCase(email)) {
+        if (!usuarioRepository.buscarPorEmail(usuario.getEmail().toLowerCase()).isEmpty()) {
             throw new IllegalArgumentException("Ya existe un usuario con ese email.");
         }
 
-        if (usuarioRepository.existsByCelular(celular)) {
+        if (!usuarioRepository.buscarPorCelular(usuario.getCelular()).isEmpty()) {
             throw new IllegalArgumentException("Ya existe un usuario con ese celular.");
         }
 
@@ -36,7 +36,7 @@ public class UsuarioService {
     }
 
     private String generarNuevoId() {
-        Optional<Usuario> ultimo = usuarioRepository.findTopByOrderByConsecUserDesc();
+        Optional<Usuario> ultimo = usuarioRepository.buscarUltimoUsuario();
         if (ultimo.isPresent()) {
             try {
                 int num = Integer.parseInt(ultimo.get().getConsecUser());
@@ -51,7 +51,7 @@ public class UsuarioService {
 
     public Usuario loginPorEmailYCelular(String email, String celular) {
         return usuarioRepository
-                .findByEmailIgnoreCaseAndCelular(email.toLowerCase(), celular)
+                .buscarPorEmailYCelular(email.toLowerCase(), celular)
                 .orElseThrow(() -> new IllegalArgumentException("Credenciales inválidas."));
     }
 }

@@ -30,11 +30,10 @@ public class UsuarioService {
             throw new IllegalArgumentException("Ya existe un usuario con ese celular.");
         }
 
-        usuario.setEmail(email); // se guarda ya en minúsculas
+        usuario.setEmail(email);
         usuario.setConsecUser(generarNuevoId());
         return usuarioRepository.save(usuario);
     }
-
 
     private String generarNuevoId() {
         Optional<Usuario> ultimo = usuarioRepository.findTopByOrderByConsecUserDesc();
@@ -48,5 +47,11 @@ public class UsuarioService {
         } else {
             return "001";
         }
+    }
+
+    public Usuario loginPorEmailYCelular(String email, String celular) {
+        return usuarioRepository
+                .findByEmailIgnoreCaseAndCelular(email.toLowerCase(), celular)
+                .orElseThrow(() -> new IllegalArgumentException("Credenciales inválidas."));
     }
 }

@@ -1,5 +1,6 @@
 package com.social.backend.controller;
 
+import com.social.backend.dto.LoginRequest;
 import com.social.backend.model.Usuario;
 import com.social.backend.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,4 +33,15 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarios);
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+        try {
+            Usuario usuario = usuarioService.loginPorEmailYCelular(
+                    loginRequest.getEmail(), loginRequest.getCelular()
+            );
+            return ResponseEntity.ok(usuario);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+        }
+    }
 }

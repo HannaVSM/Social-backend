@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -54,4 +55,10 @@ public class UsuarioService {
                 .buscarPorEmailYCelular(email.toLowerCase(), celular)
                 .orElseThrow(() -> new IllegalArgumentException("Credenciales inválidas."));
     }
+
+    public Usuario obtenerPorCelular(String celular) {
+        return usuarioRepository.buscarUsuarioPorCelular(celular)
+                .orElseThrow(() -> new NoSuchElementException("No se encontró un usuario con ese celular."));
+    }
+
 }

@@ -26,5 +26,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String> {
     // Login por email y celular
     @Query(value = "SELECT * FROM usuario WHERE LOWER(email) = LOWER(:email) AND celular = :celular", nativeQuery = true)
     Optional<Usuario> buscarPorEmailYCelular(@Param("email") String email, @Param("celular") String celular);
+
+    @Query(value = "SELECT * FROM usuario WHERE celular = :celular", nativeQuery = true)
+    Optional<Usuario> buscarUsuarioPorCelular(@Param("celular") String celular);
 }
 

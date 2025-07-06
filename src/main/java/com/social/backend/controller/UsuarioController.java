@@ -44,4 +44,10 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
     }
+
+    @GetMapping("/por-celular/{celular}")
+    public ResponseEntity<Usuario> obtenerUsuarioPorCelular(@PathVariable String celular) {
+        Usuario usuario = usuarioService.obtenerPorCelular(celular);
+        return ResponseEntity.ok(usuario);
+    }
 }

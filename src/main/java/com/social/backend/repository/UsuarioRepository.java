@@ -7,6 +7,9 @@ import java.util.Optional;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, String> {
     Optional<Usuario> findTopByOrderByConsecUserDesc();
+    boolean existsByEmailIgnoreCase(String email);
 
+
+    boolean existsByCelular(String celular);
 }
 

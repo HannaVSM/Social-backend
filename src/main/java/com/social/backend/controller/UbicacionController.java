@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ubicaciones")
+@RequestMapping("/api/ubicaciones")
 public class UbicacionController {
 
     private final UbicacionService ubicacionService;
@@ -16,9 +16,10 @@ public class UbicacionController {
         this.ubicacionService = ubicacionService;
     }
 
-    @GetMapping("/por-ubi-codubica/{ubiCodUbica}")
-    public List<Ubicacion> obtenerPorUbiCodUbica(@PathVariable String ubiCodUbica) {
+    @GetMapping("/por-ubi-codubica")
+    public List<Ubicacion> obtenerPorUbiCodUbica(@RequestParam String ubiCodUbica) {
         return ubicacionService.obtenerPorUbiCodUbica(ubiCodUbica);
     }
+
 }
 

@@ -11,7 +11,7 @@ import java.util.List;
 public interface AmigoRepository extends JpaRepository<Amigo, Long> {
 
     // Obtener los amigos de un usuario
-    @Query(value = "SELECT * FROM amigo WHERE consecuser = :id", nativeQuery = true)
+    @Query(value = "SELECT * FROM amigo WHERE consecuser = :id OR consecuser2 = :id", nativeQuery = true)
     List<Amigo> buscarAmigosDe(@Param("id") String consecUser);
 
     // Insertar un nuevo amigo

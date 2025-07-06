@@ -34,7 +34,7 @@ public class UsuarioService {
                 throw new RuntimeException("El ID actual no es numérico");
             }
         } else {
-            return "1"; // Primer usuario
+            return "1";
         }
     }
 }

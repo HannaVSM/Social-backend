@@ -1,10 +1,15 @@
 package com.social.backend.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 import java.util.List;
 
 public class MensajeConContenidoDTO {
+    @JsonProperty("remitente")
     private String consecUser;
+
+    @JsonProperty("destinatario")
     private String usuConsecUser;
     private Long consMensaje;
     private Long codGrupo;

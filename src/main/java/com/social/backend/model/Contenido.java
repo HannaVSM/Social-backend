@@ -12,11 +12,11 @@ public class Contenido {
     @Column(name = "idtipocontenido", length = 2)
     private String idTipoContenido;
 
-    @Column(name = "idtipoarchivo", length = 2)
+    @Column(name = "idtipoarchivo", length = 2, nullable = true)
     private String idTipoArchivo;
 
     @Lob
-    @Column(name = "contenidoimag", nullable = false)
+    @Column(name = "contenidoimag")
     private byte[] contenidoImag;
 
     @Column(name = "localizacontenido", length = 255)

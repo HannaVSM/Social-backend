@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ContenidoRepository extends JpaRepository<Contenido, ContenidoId> {
 
@@ -16,5 +17,9 @@ public interface ContenidoRepository extends JpaRepository<Contenido, ContenidoI
           AND c.id.consMesaje = :consMesaje
     """)
     List<Contenido> findByMensaje(String consecUser, String usuConsecUser, Long consMesaje);
+
+    @Query(value = "SELECT MAX(consecontenido) FROM contenido", nativeQuery = true)
+    Optional<Long> findMaxConseContenido();
+
 }
 

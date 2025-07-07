@@ -1,7 +1,9 @@
 package com.social.backend.controller;
 
+import com.social.backend.dto.MensajeCrearDTO;
 import com.social.backend.model.Mensaje;
 import com.social.backend.service.MensajeService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,9 +28,9 @@ public class MensajeController {
     }
 
     @PostMapping
-    public ResponseEntity<Mensaje> crearMensaje(@RequestBody Mensaje mensaje) {
-        Mensaje nuevo = mensajeService.guardarMensaje(mensaje);
-        return ResponseEntity.ok(nuevo);
+    public ResponseEntity<?> crearMensaje(@RequestBody MensajeCrearDTO dto) {
+        mensajeService.crearMensajeConContenido(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
 

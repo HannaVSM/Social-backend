@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface MensajeRepository extends JpaRepository<Mensaje, MensajeId> {
 
@@ -16,6 +17,10 @@ public interface MensajeRepository extends JpaRepository<Mensaje, MensajeId> {
         ORDER BY m.fecharegmen
     """, nativeQuery = true)
     List<Mensaje> findMensajesEntreUsuarios(String user1, String user2);
+
+    @Query(value = "SELECT MAX(consmesaje) FROM mensaje", nativeQuery = true)
+    Optional<Long> findMaxConsMensaje();
+
 
 }
 

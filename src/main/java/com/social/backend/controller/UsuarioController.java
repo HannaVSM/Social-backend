@@ -50,4 +50,11 @@ public class UsuarioController {
         Usuario usuario = usuarioService.obtenerPorCelular(celular);
         return ResponseEntity.ok(usuario);
     }
+
+    @GetMapping("/amigos/{id}")
+    public ResponseEntity<List<Usuario>> obtenerAmigos(@PathVariable String id) {
+        List<Usuario> amigos = usuarioService.obtenerAmigos(id);
+        return ResponseEntity.ok(amigos);
+    }
+
 }

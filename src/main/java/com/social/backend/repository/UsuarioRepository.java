@@ -29,5 +29,20 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String> {
 
     @Query(value = "SELECT * FROM usuario WHERE celular = :celular", nativeQuery = true)
     Optional<Usuario> buscarUsuarioPorCelular(@Param("celular") String celular);
+
+    @Query(value = """
+    SELECT DISTINCT u.*
+    FROM usuario u
+    WHERE u.consecuser IN (
+        SELECT CASE
+                 WHEN a.consecuser = :id THEN a.consecuser2
+                 ELSE a.consecuser
+               END
+        FROM amigo a
+        WHERE a.consecuser = :id OR a.consecuser2 = :id
+    )
+""", nativeQuery = true)
+    List<Usuario> buscarAmigosDeUsuario(@Param("id") String consecUser);
+
 }
 

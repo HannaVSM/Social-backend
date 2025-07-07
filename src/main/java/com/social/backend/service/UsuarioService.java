@@ -61,4 +61,9 @@ public class UsuarioService {
                 .orElseThrow(() -> new NoSuchElementException("No se encontró un usuario con ese celular."));
     }
 
+    public List<Usuario> obtenerAmigos(String consecUser) {
+        return usuarioRepository.buscarAmigosDeUsuario(consecUser);
+    }
+
+
 }

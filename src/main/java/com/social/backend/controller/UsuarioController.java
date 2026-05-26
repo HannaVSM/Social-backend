@@ -17,6 +17,11 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    // Constructor para facilitar pruebas (inyección manual en tests)
+    public UsuarioController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
+
     @PostMapping
     public ResponseEntity<?> crearUsuario(@RequestBody Usuario usuario) {
         try {

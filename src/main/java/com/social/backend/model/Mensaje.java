@@ -14,7 +14,7 @@ public class Mensaje {
     @Column(name = "codgrupo")
     private Long codGrupo;
 
-    @Column(name = "men_conmesaje")
+    @Column(name = "men_consmesaje")
     private Long menConMesaje;
 
     @Column(name = "fecharegmen", nullable = false)

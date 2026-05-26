@@ -11,7 +11,7 @@ public class MensajeConContenidoDTO {
 
     @JsonProperty("destinatario")
     private String usuConsecUser;
-    private Long consMensaje;
+    private Integer consMensaje;
     private Long codGrupo;
     private Long menConMensaje;
     private Date fechaRegMen;
@@ -35,11 +35,11 @@ public class MensajeConContenidoDTO {
         this.usuConsecUser = usuConsecUser;
     }
 
-    public Long getConsMensaje() {
+    public Integer getConsMensaje() {
         return consMensaje;
     }
 
-    public void setConsMensaje(Long consMensaje) {
+    public void setConsMensaje(Integer consMensaje) {
         this.consMensaje = consMensaje;
     }
 

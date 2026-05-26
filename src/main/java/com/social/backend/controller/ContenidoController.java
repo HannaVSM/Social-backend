@@ -21,7 +21,7 @@ public class ContenidoController {
     public List<Contenido> obtenerPorMensaje(
             @RequestParam String consecUser,
             @RequestParam String usuConsecUser,
-            @RequestParam Long consMesaje
+            @RequestParam Integer consMesaje
     ) {
         return contenidoService.obtenerContenidosPorMensaje(consecUser, usuConsecUser, consMesaje);
     }
@@ -30,7 +30,7 @@ public class ContenidoController {
     public MensajeConContenidoDTO obtenerMensajeConContenido(
             @RequestParam String consecUser,
             @RequestParam String usuConsecUser,
-            @RequestParam Long consMesaje
+            @RequestParam Integer consMesaje
     ) {
         return contenidoService.obtenerMensajeConContenido(consecUser, usuConsecUser, consMesaje);
     }

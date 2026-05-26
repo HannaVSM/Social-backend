@@ -19,7 +19,7 @@ public interface MensajeRepository extends JpaRepository<Mensaje, MensajeId> {
     List<Mensaje> findMensajesEntreUsuarios(String user1, String user2);
 
     @Query(value = "SELECT MAX(consmesaje) FROM mensaje", nativeQuery = true)
-    Optional<Long> findMaxConsMensaje();
+    Optional<Integer> findMaxConsMensaje();
 
 
 }

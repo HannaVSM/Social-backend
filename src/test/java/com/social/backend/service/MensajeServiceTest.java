@@ -55,8 +55,10 @@ class MensajeServiceTest {
 
     @Test
     void crearMensajeConContenido_DeberiaGenerarIdsCuandoHayMaximos() {
-        when(mensajeRepository.findMaxConsMensaje()).thenReturn(Optional.of(10L));
-        when(contenidoRepository.findMaxConseContenido()).thenReturn(Optional.of(100L));
+        when(mensajeRepository.findMaxConsMensaje())
+                .thenReturn(Optional.of(10));
+        when(contenidoRepository.findMaxConseContenido())
+                .thenReturn(Optional.of((short) 100));
 
         mensajeService.crearMensajeConContenido(dto);
 
@@ -68,12 +70,12 @@ class MensajeServiceTest {
         MensajeId mid = savedMensaje.getId();
         assertEquals("001", mid.getConsecUser());
         assertEquals("002", mid.getUsuConsecUser());
-        assertEquals(11L, mid.getConsMesaje());
+        assertEquals(11, mid.getConsMesaje());
 
         Contenido savedContenido = contenidoCaptor.getValue();
         ContenidoId cid = savedContenido.getId();
-        assertEquals(101L, cid.getConseContenido());
-        assertEquals(11L, cid.getConsMesaje());
+        assertEquals(101, cid.getConseContenido());
+        assertEquals(11, cid.getConsMesaje());
         assertEquals("001", cid.getConsecUser());
         assertEquals("002", cid.getUsuConsecUser());
         assertArrayEquals(new byte[] {0x01}, savedContenido.getContenidoImag());

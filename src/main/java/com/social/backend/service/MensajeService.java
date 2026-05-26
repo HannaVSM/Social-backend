@@ -25,8 +25,8 @@ public class MensajeService {
 
     public void crearMensajeConContenido(MensajeCrearDTO dto) {
         // 1. Generar siguiente ID para mensaje
-        Long nuevoConsMensaje = mensajeRepository.findMaxConsMensaje()
-                .orElse(0L) + 1;
+        Integer nuevoConsMensaje = mensajeRepository.findMaxConsMensaje()
+                .orElse(0) + 1;
 
         // 2. Crear mensaje
         Mensaje mensaje = new Mensaje();
@@ -43,8 +43,8 @@ public class MensajeService {
         mensajeRepository.save(mensaje);
 
         // 3. Generar ID para contenido
-        Long nuevoConseContenido = contenidoRepository.findMaxConseContenido()
-                .orElse(0L) + 1;
+        short nuevoConseContenido = (short) (contenidoRepository.findMaxConseContenido()
+                .orElse((short) 0) + 1);
 
         Contenido contenido = new Contenido();
         ContenidoId contenidoId = new ContenidoId();

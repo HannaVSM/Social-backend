@@ -37,7 +37,7 @@ class MensajeControllerTest {
         MensajeId id = new MensajeId();
         id.setConsecUser("001");
         id.setUsuConsecUser("002");
-        id.setConsMesaje(1L);
+        id.setConsMesaje(1);
         m.setId(id);
         m.setCodGrupo(null);
         m.setFechaRegMen(new Date());

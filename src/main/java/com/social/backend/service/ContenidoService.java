@@ -22,11 +22,11 @@ public class ContenidoService {
         this.mensajeRepository = mensajeRepository;
     }
 
-    public List<Contenido> obtenerContenidosPorMensaje(String consecUser, String usuConsecUser, Long consMesaje) {
+    public List<Contenido> obtenerContenidosPorMensaje(String consecUser, String usuConsecUser, Integer consMesaje) {
         return contenidoRepository.findByMensaje(consecUser, usuConsecUser, consMesaje);
     }
 
-    public MensajeConContenidoDTO obtenerMensajeConContenido(String consecUser, String usuConsecUser, Long consMesaje) {
+    public MensajeConContenidoDTO obtenerMensajeConContenido(String consecUser, String usuConsecUser, Integer consMesaje) {
         List<Contenido> contenidos = contenidoRepository.findByMensaje(consecUser, usuConsecUser, consMesaje);
 
         List<ContenidoDTO> contenidoDTOs = contenidos.stream().map(c -> {

@@ -14,10 +14,10 @@ public class ContenidoId implements Serializable {
     private String usuConsecUser;
 
     @Column(name = "consmesaje", nullable = false)
-    private Long consMesaje;
+    private Integer consMesaje;
 
     @Column(name = "consecontenido", nullable = false)
-    private Long conseContenido;
+    private Short conseContenido;
 
     // Getters y setters
 
@@ -37,19 +37,19 @@ public class ContenidoId implements Serializable {
         this.usuConsecUser = usuConsecUser;
     }
 
-    public Long getConsMesaje() {
+    public Integer getConsMesaje() {
         return consMesaje;
     }
 
-    public void setConsMesaje(Long consMesaje) {
+    public void setConsMesaje(Integer consMesaje) {
         this.consMesaje = consMesaje;
     }
 
-    public Long getConseContenido() {
+    public short getConseContenido() {
         return conseContenido;
     }
 
-    public void setConseContenido(Long conseContenido) {
+    public void setConseContenido(Short conseContenido) {
         this.conseContenido = conseContenido;
     }
 

@@ -16,7 +16,7 @@ public class Contenido {
     private String idTipoArchivo;
 
     @Lob
-    @Column(name = "contenidoimag")
+    @Column(name = "contenidoimag", columnDefinition = "bytea")
     private byte[] contenidoImag;
 
     @Column(name = "localizacontenido", length = 255)

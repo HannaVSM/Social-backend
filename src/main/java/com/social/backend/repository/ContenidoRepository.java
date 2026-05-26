@@ -16,10 +16,10 @@ public interface ContenidoRepository extends JpaRepository<Contenido, ContenidoI
           AND c.id.usuConsecUser = :usuConsecUser 
           AND c.id.consMesaje = :consMesaje
     """)
-    List<Contenido> findByMensaje(String consecUser, String usuConsecUser, Long consMesaje);
+    List<Contenido> findByMensaje(String consecUser, String usuConsecUser, Integer consMesaje);
 
     @Query(value = "SELECT MAX(consecontenido) FROM contenido", nativeQuery = true)
-    Optional<Long> findMaxConseContenido();
+    Optional<Short> findMaxConseContenido();
 
 }
 

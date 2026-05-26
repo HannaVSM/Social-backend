@@ -1,18 +1,18 @@
 package com.social.backend.dto;
 
 public class ContenidoDTO {
-    private Long conseContenido;
+    private Short conseContenido;
     private String idTipoContenido;
     private String idTipoArchivo;
     private String localizaContenido;
 
     // Getters y setters
 
-    public Long getConseContenido() {
+    public Short getConseContenido() {
         return conseContenido;
     }
 
-    public void setConseContenido(Long conseContenido) {
+    public void setConseContenido(Short conseContenido) {
         this.conseContenido = conseContenido;
     }
 

@@ -25,7 +25,6 @@ public class Grupo {
     @Column(name = "fechareggrupo", nullable = false)
     private Date fechaRegGrupo;
 
-    @Lob
     @Column(name = "imaggrupo", nullable = false)
     private byte[] imagGrupo;
 

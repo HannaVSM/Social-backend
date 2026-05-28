@@ -50,7 +50,7 @@ class MensajeIntegrationTest {
         assertFalse(mensajes.isEmpty());
         Mensaje saved = mensajes.get(0);
         assertNotNull(saved.getId());
-        Long consMesaje = saved.getId().getConsMesaje();
+        Integer consMesaje = saved.getId().getConsMesaje();
         assertTrue(consMesaje >= 1L);
 
         // Assert: contenido creado y vinculado

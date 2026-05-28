@@ -92,7 +92,7 @@ class MensajeServiceTest {
         verify(contenidoRepository).save(contenidoCaptor.capture());
 
         MensajeId mid = mensajeCaptor.getValue().getId();
-        assertEquals(1L, mid.getConsMesaje());
+        assertEquals(1L, Optional.ofNullable(mid.getConsMesaje()));
         ContenidoId cid = contenidoCaptor.getValue().getId();
         assertEquals(1L, cid.getConseContenido());
     }

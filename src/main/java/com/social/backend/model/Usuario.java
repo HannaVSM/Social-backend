@@ -36,15 +36,12 @@ public class Usuario {
     @Column(name = "celular", length = 16, nullable = false)
     private String celular;
 
-    @Lob
     @Column(name = "imageuser")
     private byte[] imageUser;
 
-    @Lob
     @Column(name = "temauser")
     private byte[] temaUser;
 
-    @Lob
     @Column(name = "huellauser")
     private byte[] huellaUser;
 
